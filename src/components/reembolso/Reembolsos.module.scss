@@ -1,0 +1,46 @@
+.container__title {
+  max-width: 90%;
+  margin: 0 auto;
+}
+main {
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container__dashboard {
+  border: 1px solid red;
+  width: 58.375rem;
+  height: 495px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container_cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid blue;
+
+    .card {
+      width: 18.125rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid green;
+      height: 209px;
+      border: 0.8px solid rgba(203, 212, 225, 1);
+      border-radius: 6px;
+
+      p {
+        margin-top: 5px;
+        font-weight: 700;
+      }
+    }
+  }
+}
