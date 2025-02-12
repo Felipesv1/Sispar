@@ -1,6 +1,7 @@
 import Navbar from "../navbar/Navbar.jsx";
 import style from "./Reembolsos.module.scss";
-import Home_icon from "../../assets/Dashboard/icon_Home.png";
+import Home_icon from "../../assets/Dashboard/icon_casa_gray.png";
+import setinha from "../../assets/Dashboard/seta.png";
 import image_refund_request from "../../assets/Dashboard/Solicitar_Reembolso.png";
 import image_history_request from "../../assets/Dashboard/Solicitar_Histórico.png";
 import image_analyzing_verify from "../../assets/Dashboard/Análises.png";
@@ -11,12 +12,13 @@ import image_rejected from "../../assets/Dashboard/N-Rejeitados.png";
 import image_update from "../../assets/Dashboard/atualizado.png";
 export default function Reembolsos() {
   return (
-    <section>
+    <div>
       <Navbar />
-      <div className={style.container__title}>
+      <header className={style.container__header_dashboard}>
         <img src={Home_icon} alt="icon Home" />
+        <img src={setinha} alt="seta" />
         <span>Reembolsos</span>
-      </div>
+      </header>
       <main>
         <section className={style.container__dashboard}>
           <div>
@@ -105,6 +107,6 @@ export default function Reembolsos() {
           </div>
         </section>
       </main>
-    </section>
+    </div>
   );
 }
