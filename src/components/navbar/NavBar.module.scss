@@ -2,7 +2,7 @@
   --primary_color--: rgba(8, 68, 196, 1);
 }
 
-header {
+.container_header {
   width: 88px;
   height: 100%;
   display: flex;
@@ -11,9 +11,11 @@ header {
   align-items: center;
   position: fixed;
   left: 0;
+  transition: 0.1s;
   top: 0;
   z-index: 999999;
   padding: 15px;
+  background-color: white;
 
   .container_navbar_section {
     width: 100%;
@@ -35,6 +37,10 @@ header {
     background-color: rgba(99, 117, 141, 1);
   }
 }
+.container_header.active{
+  left: -10px;
+  overflow-y: auto;
+}
 .btn_header {
   background-color: var(--primary_color--);
 }
@@ -49,3 +55,4 @@ button {
 button:hover {
   transform: scale(1.1);
 }
+
