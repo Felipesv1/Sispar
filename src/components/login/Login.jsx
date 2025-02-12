@@ -1,6 +1,12 @@
 import logo from "../../assets/Tela_Login/logo_ws.png";
 import styles from "./Login.module.scss";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const navigate = useNavigate();
+
+  function loggIn_section_refund() {
+    navigate("/reembolso");
+  }
   return (
     <main className={styles.container}>
       <section className={styles.container_img}></section>
@@ -22,7 +28,7 @@ export default function Login() {
             <p>Esqueci minha senha</p>
           </div>
           <div className={styles.container_buttons}>
-            <button className={styles.btn_login} type="submit">
+            <button onClick={loggIn_section_refund} className={styles.btn_login} type="submit">
               Entrar
             </button>
             <button className={styles.btn_create} type="submit">
