@@ -1,0 +1,70 @@
+.container__header_refund {
+  width: 300pxpx;
+  margin: auto 90px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.container__main_refund {
+  max-width: 100%;
+  margin: auto 90px;
+  height: 90vh;
+}
+form {
+  background-color: rgb(134, 9, 128);
+  display: flex;
+}
+.container__form_first_section {
+  background-color: blue;
+  width: 41.625rem;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  .container__form_first_div__input {
+    background-color: green;
+
+    width: 41.625rem;
+    display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  input {
+    height: 45px;
+    border: 0.8px solid rgba(203, 212, 225, 1);
+    border-radius: 6px;
+  }
+  label {
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .name {
+    width: 370px;
+  }
+  .enterprise,
+  .accounts {
+    width: 132px;
+  }
+  .container__desscription {
+    width: 41.625rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: red;
+    height: 100%;
+  }
+}
+.border {
+  width: 32px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    height: 180px;
+    border: 1px solid rgba(203, 212, 225, 1);
+  }
+}
