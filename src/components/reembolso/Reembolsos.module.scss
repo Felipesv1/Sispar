@@ -5,9 +5,9 @@
   display: flex;
   align-items: center;
 }
-main {
+.container__main_dashboard {
   max-width: 100%;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@ main {
         margin-bottom: 4px;
       }
       p{
-        margin-bottom: 5px;
+        margin-bottom: 2px;
       }
     }
   }
@@ -79,25 +79,25 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    div {
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .data__icon_n_request {
       background-color: rgba(0, 190, 221, 1);
+      padding: 12px;
+      border-radius: 6px;
     }
     .data__icon_n_analyzing {
       background-color: rgba(229, 103, 0, 1);
+      padding: 9px;
+      border-radius: 6px;
     }
     .data__icon_n_aproved {
       background-color: rgba(0, 122, 106, 1);
+      padding: 11px;
+      border-radius: 6px;
     }
     .data__icon_n_rejected {
       background-color: rgba(166, 11, 47, 1);
+      padding: 11px;
+      border-radius: 6px;
     }
   }
 }
