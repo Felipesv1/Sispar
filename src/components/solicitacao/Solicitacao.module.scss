@@ -1,70 +1,200 @@
-.container__header_refund {
-  width: 300pxpx;
-  margin: auto 90px;
+.container__refund_request_layout {
+  display: flex;
+}
+
+.container__header_refund_request {
+  width: 320px;
   height: 75px;
   display: flex;
   align-items: center;
 }
 
-.container__main_refund {
-  max-width: 100%;
-  margin: auto 90px;
+.container__main_refund_request {
   height: 90vh;
 }
-form {
-  background-color: rgb(134, 9, 128);
+.container__form_refund_request {
+  width: 94vw;
+  height: 180px;
+  // background-color: rgb(134, 9, 128);
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .container__form_first_section {
-  background-color: blue;
+  // background-color: blue;
   width: 41.625rem;
   height: 180px;
   display: flex;
-  flex-direction: column;
-  .container__form_first_div__input {
-    background-color: green;
+  flex-wrap: wrap;
 
-    width: 41.625rem;
-    display: flex;
-    justify-content: space-between;
-    div {
-      display: flex;
-      flex-direction: column;
-    }
+  justify-content: space-between;
+
+  label {
+    font-weight: 700;
+    color: rgba(35, 40, 47, 1);
   }
   input {
+    width: 100%;
     height: 45px;
+    margin-top: 14px;
     border: 0.8px solid rgba(203, 212, 225, 1);
     border-radius: 6px;
+    padding: 15px;
   }
-  label {
-    margin-bottom: 12px;
-    font-weight: 700;
+  .container_input_name {
+    width: 45%;
   }
-  .name {
-    width: 370px;
+  .container_input_enterprise {
+    width: 25%;
   }
-  .enterprise,
-  .accounts {
-    width: 132px;
+  .container_input_account {
+    width: 25%;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
-  .container__desscription {
-    width: 41.625rem;
-    display: flex;
-    flex-direction: column;
+  .container_text_description {
+    width: 100%;
     margin-top: 10px;
-    background-color: red;
-    height: 100%;
+    .description {
+      margin-top: 10px;
+      height: 61px;
+      width: 100%;
+      resize: none;
+      overflow: hidden;
+      border: 0.8px solid rgba(203, 212, 225, 1);
+      border-radius: 6px;
+      padding: 15px;
+    }
   }
 }
-.border {
-  width: 32px;
-  height: 180px;
+.vertical_bar {
+  width: 0.1vw;
+  background: rgba(203, 212, 225, 1);
+}
+
+// secound section -------------------------------------------------
+
+.container__form_second_section {
+  width: 60%;
+  // background-color: red;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  span {
-    height: 180px;
-    border: 1px solid rgba(203, 212, 225, 1);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input {
+    margin-top: 15px;
+    border: 0.8px solid rgba(203, 212, 225, 1);
+    border-radius: 6px;
+    padding: 15px;
+    height: 45px;
+  }
+  select {
+    margin-top: 15px;
+
+    border: 0.8px solid rgba(203, 212, 225, 1);
+    border-radius: 6px;
+    padding: 10px;
+    height: 45px;
+  }
+  label {
+    font-weight: 700;
+    color: rgba(35, 40, 47, 1);
+  }
+  .box_input_date {
+    width: 15%;
+    // background-color: black;
+    input {
+      width: 100%;
+      background-image: url("../../assets/solicitacao/calendario.png");
+      background-size: 20px;
+      background-position: right 10px center;
+      background-repeat: no-repeat;
+      text-transform: uppercase;
+    }
+    input::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+  }
+  .box_type_select_expenses {
+    width: 30%;
+    // background-color: rgba(13, 253, 93, 0.589);
+    select {
+      width: 100%;
+    }
+  }
+  .box_type_select_cost_center {
+    // background-color: rgba(5, 5, 5, 0.589);
+
+    width: 50%;
+    select {
+      width: 100%;
+    }
+  }
+  .box_input_Ord_int,
+  .box_input_div,
+  .box_input_pep,
+  .box_input_dist_km {
+    margin-top: 23px;
+    // background-color: yellow;
+    width: 7%;
+    input {
+      width: 100%;
+    }
+  }
+  .box_input_moeda,
+  .box_input_valor_km,
+  .box_val_faturado,
+  .box_input_despesa {
+    margin-top: 23px;
+
+    // background-color: violet;
+    width: 10%;
+    input {
+      width: 100%;
+    }
+  }
+
+  .container_salve_delete {
+    // background-color: brown; 
+    width: 158px;
+    height: 100px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  
+    .box_button_save {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 102px;
+      height: 45px;
+      background-color: rgba(0, 26, 61, 1);
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      img {
+        margin-right: 5px;
+      }
+    }
+    .box_button_delete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 190, 221, 1);
+      width: 48px;
+      height: 45px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   }
 }
