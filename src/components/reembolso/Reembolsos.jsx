@@ -19,7 +19,7 @@ export default function Reembolsos() {
     navigate("/solicitar-reembolso");
   }
   return (
-    <div>
+    <div className={style.container__refund_layout}>
       <Navbar />
       <header className={style.container__header_dashboard}>
         <img src={Home_icon} alt="icon Home" />

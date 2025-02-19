@@ -1,12 +1,15 @@
+.container__refund_layout {
+  display: flex;
+}
+
 .container__header_dashboard {
   width: 155px; 
-  margin: auto 90px;
   height: 75px;
   display: flex;
   align-items: center;
 }
 .container__main_dashboard {
-  max-width: 100%;
+  width: 75vw;
   height: 90vh;
   display: flex;
   justify-content: center;

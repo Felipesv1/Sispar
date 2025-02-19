@@ -3,13 +3,12 @@
 }
 
 .container_header {
-  width: 88px;
-  height: 100%;
+  width: 5vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   left: 0;
   transition: 0.1s;
   top: 0;
@@ -36,23 +35,24 @@
   .logoff_btn {
     background-color: rgba(99, 117, 141, 1);
   }
+  button {
+    width: 48px;
+    height: 45px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 100ms all;
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+  
+  
 }
 .container_header.active{
-  left: -10px;
+  left: -200px;
   overflow-y: auto;
 }
 .btn_header {
   background-color: var(--primary_color--);
 }
-button {
-  width: 48px;
-  height: 45px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: 100ms all;
-}
-button:hover {
-  transform: scale(1.1);
-}
-
