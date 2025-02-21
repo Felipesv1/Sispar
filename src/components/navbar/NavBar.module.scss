@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   left: 0;
   transition: 0.1s;
   top: 0;
@@ -50,7 +51,7 @@
   
 }
 .container_header.active{
-  left: -200px;
+  left: -50px;
   overflow-y: auto;
 }
 .btn_header {
