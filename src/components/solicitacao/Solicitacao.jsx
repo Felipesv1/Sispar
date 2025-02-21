@@ -4,6 +4,10 @@ import Navbar from "../navbar/NavBar.jsx";
 import styles from "./Solicitacao.module.scss";
 import icon_plus from "../../assets/solicitacao/+.png";
 import icon_delete from "../../assets/solicitacao/deletar.png";
+import icon_trash from "../../assets/solicitacao/lixeira.png";
+import icon_motivo from "../../assets/solicitacao/motivo.png";
+import icon_check from "../../assets/solicitacao/check.png";
+import icon_x from "../../assets/solicitacao/x.png";
 export default function Solicitacao() {
   return (
     <div className={styles.container__refund_request_layout}>
@@ -92,11 +96,11 @@ export default function Solicitacao() {
               </div>
               <div className={styles.box_input_moeda}>
                 <label htmlFor="moeda">Moeda</label>
-                <input type="number" id="moeda" />
+                <input type="text" id="moeda" />
               </div>
               <div className={styles.box_input_dist_km}>
                 <label htmlFor="dist_km">Dist / Km</label>
-                <input type="number" id="dist_km" />
+                <input type="text" id="dist_km" />
               </div>
               <div className={styles.box_input_valor_km}>
                 <label htmlFor="valor_km">Valor / Km</label>
@@ -121,6 +125,82 @@ export default function Solicitacao() {
               </div>
             </section>
           </form>
+          <section className={styles.container_table}>
+            <table className={styles.table_refund_request}>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Colaborador{"(a)"}</th>
+                  <th>Empresa</th>
+                  <th>&#8470; Prest. </th>
+                  <th>Data</th>
+                  <th>Motivo</th>
+                  <th>Tipo de Despesa</th>
+                  <th>Ctr. Custo</th>
+                  <th>Ord. Int.</th>
+                  <th>Div.</th>
+                  <th>PEP</th>
+                  <th>Moeda</th>
+                  <th>Dist. Km</th>
+                  <th>Valor. Km</th>
+                  <th>Val.Faturado</th>
+                  <th>Despesa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td>
+                  <img src={icon_trash} alt="icone de lixeira" />
+                </td>
+                <td>vitor carvalho</td>
+                <td>WSS001</td>
+                <td>329456</td>
+                <td>12/12/2021</td>
+                <td>
+                  <img src={icon_motivo} alt="icone de motivo " />
+                </td>
+                <td>100101011010 - Fin</td>
+                <td>0003</td>
+                <td>002</td>
+                <td>001</td>
+                <td>BRL</td>
+                <td>434km</td>
+                <td>0.65</td>
+                <td>242.10</td>
+                <td>40.05</td>
+                <td>40.05</td>
+              </tbody>
+            </table>
+          </section>
+          <section className={styles.container_request}>
+            <div className={styles.content_request}>
+              <div className={styles.container_total_faturado}>
+                <label htmlFor="toral_faturado">Total faturado</label>
+                <input
+                  className={styles.total}
+                  type="text"
+                  id="todal_faturado"
+                  placeholder="0.00"
+                />
+              </div>
+              <div className={styles.container_total_despesa}>
+                <label htmlFor="toral_faturado">Toral despesa</label>
+                <input
+                  className={styles.total}
+                  type="text"
+                  id="toral_faturado"
+                  placeholder="0.00"
+                />
+              </div>
+              <button className={styles.button_send_analysis}>
+                <img src={icon_check} alt="icone de check" />
+                <span>Enviar para Análise</span>
+              </button>
+              <button className={styles.button_cancel}>
+                <img src={icon_x} alt="icone de x" />
+                <span>Cancelar Solicitação</span>
+              </button>
+            </div>
+          </section>
         </main>
       </div>
     </div>

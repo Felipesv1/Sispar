@@ -15,13 +15,11 @@
 .container__form_refund_request {
   width: 94vw;
   height: 180px;
-  // background-color: rgb(134, 9, 128);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 .container__form_first_section {
-  // background-color: blue;
   width: 41.625rem;
   height: 180px;
   display: flex;
@@ -79,7 +77,6 @@
 
 .container__form_second_section {
   width: 60%;
-  // background-color: red;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -109,7 +106,6 @@
   }
   .box_input_date {
     width: 15%;
-    // background-color: black;
     input {
       width: 100%;
       background-image: url("../../assets/solicitacao/calendario.png");
@@ -124,7 +120,6 @@
   }
   .box_type_select_expenses {
     width: 30%;
-    // background-color: rgba(13, 253, 93, 0.589);
     select {
       width: 100%;
     }
@@ -142,7 +137,6 @@
   .box_input_pep,
   .box_input_dist_km {
     margin-top: 23px;
-    // background-color: yellow;
     width: 7%;
     input {
       width: 100%;
@@ -154,7 +148,6 @@
   .box_input_despesa {
     margin-top: 23px;
 
-    // background-color: violet;
     width: 10%;
     input {
       width: 100%;
@@ -162,13 +155,12 @@
   }
 
   .container_salve_delete {
-    // background-color: brown; 
     width: 158px;
     height: 100px;
     display: flex;
     align-items: end;
     justify-content: space-between;
-  
+
     .box_button_save {
       display: flex;
       align-items: center;
@@ -195,6 +187,106 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
+    }
+  }
+}
+
+// table -----------------------------------------------------------
+
+.container_table {
+  width: 100%;
+  height: 55vh;
+  margin-top: 25px;
+  border: 0.8px solid rgba(203, 212, 225, 1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.table_refund_request {
+  width: 100%;
+  border-collapse: collapse;
+  thead {
+    background-color: rgb(241, 242, 245);
+  }
+
+  th,
+  td {
+    font-weight: 400;
+    padding: 15px;
+    border: 1px solid rgb(216, 217, 219);
+    padding: 8px;
+    text-align: center;
+  }
+}
+
+// container request--------------------------------------------------------------
+
+.container_request {
+  width: 100%;
+  height: 74px;
+  margin-top: 40px;
+  display: flex;
+  font-weight: bold;
+  justify-content: right;
+  align-items: center;
+
+  input {
+    height: 45px;
+    margin-top: 5px;
+    border: 0.8px solid rgba(203, 212, 225, 1);
+    border-radius: 6px;
+
+    padding: 15px;
+  }
+  .content_request {
+    width: 42%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    .container_total_faturado,
+    .container_total_despesa {
+      width: 15%;
+      margin: 5px;
+      flex-direction: column;
+      input {
+        width: 100%;
+      }
+    }
+
+    .button_send_analysis {
+      width: 218px;
+      height: 55px;
+      display: flex;
+      font-weight: bold;
+      font-size: 1rem;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 26, 61, 1);
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      color: white;
+      img {
+        margin-right: 10px;
+      }
+    }
+    .button_cancel {
+      width: 218px;
+      height: 55px;
+      display: flex;
+      font-weight: bold;
+      font-size: 1rem;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(166, 11, 47, 1);
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      color: white;
+      img {
+        margin-right: 10px;
+      }
     }
   }
 }
