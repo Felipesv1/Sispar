@@ -15,7 +15,7 @@ export default function Login() {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await API.post("/colaborador/login", {
+      const response = await Api.post("/colaborador/login", {
         email: email,
         senha: password,
       });
