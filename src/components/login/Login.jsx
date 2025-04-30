@@ -1,7 +1,7 @@
 import logo from "../../assets/Tela_Login/logo_ws.png";
 import styles from "./Login.module.scss";
 import { useNavigate } from "react-router-dom";
-import API from "../../services/API";
+import Api from "../../services/Api";
 import { useState } from "react";
 export default function Login() {
   const navigate = useNavigate();
