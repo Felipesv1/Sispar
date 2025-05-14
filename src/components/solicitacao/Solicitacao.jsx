@@ -10,62 +10,78 @@ import icon_motivo from "../../assets/solicitacao/motivo.png";
 import icon_check from "../../assets/solicitacao/check.png";
 import icon_x from "../../assets/solicitacao/x.png";
 import API from "../../services/Api.jsx";
+import { ToastContainer, toast } from "react-toastify";
+
 export default function Solicitacao() {
   const [colaborador, setColaborador] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [nPrestacao, setnPrestacao] = useState("");
+  const [num_prestacao, setNum_prestacao] = useState("");
   const [descricao, setDescricao] = useState("");
   const [data, setData] = useState("");
   // const [motivo, setMotivo] = useState(""); // Estado para o campo motivo  //ESSE ESTADO É PARA QUEM TÁ FAZENDO AVANÇADO UTILIZANDO MODAL
-  const [tipoReembolso, setTipoReembolso] = useState("");
-  const [centroCusto, setCentroCusto] = useState("");
-  const [ordemInterna, setorOrdemInterna] = useState("");
+  const [tipo_reembolso, setTipo_reembolso] = useState("");
+  const [centro_custo, seTcentro_custo] = useState("");
+  const [ordem_interna, setordem_interna] = useState("");
   const [divisao, setDivisao] = useState("");
   const [pep, setPep] = useState("");
   const [moeda, setMoeda] = useState("");
-  const [distanciaKm, setDistanciaKm] = useState("");
-  const [valorKm, setValorKm] = useState("");
-  const [valorFaturado, setValorFaturado] = useState("");
+  const [distancia_km, setdistancia_km] = useState("");
+  const [valor_km, setvalor_km] = useState("");
+  const [valor_faturado, setvalor_faturado] = useState("");
   const [despesa, setDespesa] = useState("");
   const [dadosReembolso, setDadosReembolso] = useState([]);
 
-  const handleSubmit = (e) => {
+  const notifySucess = () =>
+    toast.success("Dados enviados com sucesso!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const novoReembolso = {
       colaborador,
       empresa,
-      nPrestacao,
+      num_prestacao,
       descricao,
       data,
-      tipoReembolso,
-      centroCusto,
-      ordemInterna,
+      tipo_reembolso,
+      centro_custo,
+      ordem_interna,
       divisao,
       pep,
       moeda,
-      distanciaKm,
-      valorKm,
-      valorFaturado,
+      distancia_km,
+      valor_km,
+      valor_faturado,
       despesa,
     };
+
     setDadosReembolso([...dadosReembolso, novoReembolso]);
     clean_input();
   };
+
   const clean_input = () => {
     setColaborador("");
     setEmpresa("");
-    setnPrestacao("");
+    setNum_prestacao("");
     setDescricao("");
     setData("");
-    setTipoReembolso("");
-    setCentroCusto("");
-    setorOrdemInterna("");
+    setTipo_reembolso("");
+    centro_custo("");
+    setordem_interna("");
     setDivisao("");
     setPep("");
     setMoeda("");
-    setDistanciaKm("");
-    setValorKm("");
-    setValorFaturado("");
+    setdistancia_km("");
+    setvalor_km("");
+    setvalor_faturado("");
     setDespesa("");
   };
 
@@ -73,9 +89,12 @@ export default function Solicitacao() {
 
   const sendforAnlysis = async () => {
     try {
-      const res = await API.post("/solicitacao", dadosReembolso);
+      const res = await API.post(
+        "reembolso/solicitar-reembolsos",
+        dadosReembolso
+      );
       setformWasSend(true);
-      alert("Dados enviados com sucesso!");
+      notifySucess();
       console.log("Dados enviados com sucesso:", res.data);
     } catch (error) {
       console.error("Erro ao enviar os dados:", error);
@@ -90,6 +109,7 @@ export default function Solicitacao() {
   return (
     <div className={styles.container__refund_request_layout}>
       <Navbar />
+      <ToastContainer />
       <div>
         <header className={styles.container__header_refund_request}>
           <img src={Home_icon} alt="icon Home" />
@@ -130,8 +150,8 @@ export default function Solicitacao() {
                   type="number"
                   className={styles.accounts}
                   id="Prest_Contas"
-                  onChange={(e) => setnPrestacao(e.target.value)}
-                  value={nPrestacao}
+                  onChange={(e) => setNum_prestacao(e.target.value)}
+                  value={num_prestacao}
                 />
               </div>
               <div className={styles.container_text_description}>
@@ -164,8 +184,8 @@ export default function Solicitacao() {
                 <select
                   name=""
                   id=""
-                  onChange={(e) => setTipoReembolso(e.target.value)}
-                  value={tipoReembolso}
+                  onChange={(e) => setTipo_reembolso(e.target.value)}
+                  value={tipo_reembolso}
                 >
                   <option value="0">Selecionar</option>
                   <option value="1">Alimentação</option>
@@ -182,8 +202,8 @@ export default function Solicitacao() {
                 <select
                   name=""
                   id=""
-                  onChange={(e) => setCentroCusto(e.target.value)}
-                  value={centroCusto}
+                  onChange={(e) => seTcentro_custo(e.target.value)}
+                  value={centro_custo}
                 >
                   <option value="0">Selecionar</option>
                   <option value="1">Alimentação</option>
@@ -200,8 +220,8 @@ export default function Solicitacao() {
                 <input
                   type="number"
                   id="Ord_int"
-                  onChange={(e) => setorOrdemInterna(e.target.value)}
-                  value={ordemInterna}
+                  onChange={(e) => setordem_interna(e.target.value)}
+                  value={ordem_interna}
                 />
               </div>
               <div className={styles.box_input_div}>
@@ -224,20 +244,25 @@ export default function Solicitacao() {
               </div>
               <div className={styles.box_input_moeda}>
                 <label htmlFor="moeda">Moeda</label>
-                <input
-                  type="text"
-                  id="moeda"
+                <select
+                  name=""
+                  id=""
                   onChange={(e) => setMoeda(e.target.value)}
                   value={moeda}
-                />
+                >
+                  <option value="0">Selecionar</option>
+                  <option value="1">Real</option>
+                  <option value="2">Dólar</option>
+                  <option value="3">Euro</option>
+                </select>
               </div>
               <div className={styles.box_input_dist_km}>
                 <label htmlFor="dist_km">Dist / Km</label>
                 <input
                   type="text"
                   id="dist_km"
-                  onChange={(e) => setDistanciaKm(e.target.value)}
-                  value={distanciaKm}
+                  onChange={(e) => setdistancia_km(e.target.value)}
+                  value={distancia_km}
                 />
               </div>
               <div className={styles.box_input_valor_km}>
@@ -245,8 +270,8 @@ export default function Solicitacao() {
                 <input
                   type="number"
                   id="valor_km"
-                  onChange={(e) => setValorKm(e.target.value)}
-                  value={valorKm}
+                  onChange={(e) => setvalor_km(e.target.value)}
+                  value={valor_km}
                 />
               </div>
               <div className={styles.box_val_faturado}>
@@ -254,8 +279,8 @@ export default function Solicitacao() {
                 <input
                   type="number"
                   id="val_faturado"
-                  onChange={(e) => setValorFaturado(e.target.value)}
-                  value={valorFaturado}
+                  onChange={(e) => setvalor_faturado(e.target.value)}
+                  value={valor_faturado}
                 />
               </div>
               <div className={styles.box_input_despesa}>
@@ -323,13 +348,13 @@ export default function Solicitacao() {
                     </td>
                     <td>{item.tipoReembolso}</td>
                     <td>{item.centroCusto}</td>
-                    <td>{item.ordemInterna}</td>
+                    <td>{item.ordem_interna}</td>
                     <td>{item.divisao}</td>
                     <td>{item.pep}</td>
                     <td>{item.moeda}</td>
-                    <td>{item.distanciaKm}</td>
-                    <td>{item.valorKm}</td>
-                    <td>{item.valorFaturado}</td>
+                    <td>{item.distancia_km}</td>
+                    <td>{item.valor_km}</td>
+                    <td>{item.valor_faturado}</td>
                     <td>{item.despesa}</td>
                   </tr>
                 ))}
@@ -348,7 +373,7 @@ export default function Solicitacao() {
                 />
               </div>
               <div className={styles.container_total_despesa}>
-                <label htmlFor="toral_faturado">Toral despesa</label>
+                <label htmlFor="toral_faturado">Total despesa</label>
                 <input
                   className={styles.total}
                   type="text"
@@ -356,12 +381,11 @@ export default function Solicitacao() {
                   placeholder="0.00"
                 />
               </div>
-              <button className={styles.button_send_analysis}>
-                <img
-                  src={icon_check}
-                  alt="icone de check"
-                  onClick={() => sendforAnlysis()}
-                />
+              <button
+                className={styles.button_send_analysis}
+                onClick={() => sendforAnlysis()}
+              >
+                <img src={icon_check} alt="icone de check" />
                 <span>Enviar para Análise</span>
               </button>
               <button className={styles.button_cancel}>

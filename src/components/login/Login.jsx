@@ -3,10 +3,22 @@ import styles from "./Login.module.scss";
 import { useNavigate } from "react-router-dom";
 import Api from "../../services/Api";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 export default function Login() {
   const navigate = useNavigate();
+  const notifyError = () =>
+    toast.error("email ou/e senha estão errados", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
 
-  function loggIn_section_refund() {
+  function loggin_section_refund() {
     navigate("/reembolso");
   }
   const [email, setEmail] = useState("");
@@ -20,16 +32,18 @@ export default function Login() {
         senha: password,
       });
       console.log(response.data);
-      loggIn_section_refund();
+      loggin_section_refund();
       // Handle the response as needed
     } catch (error) {
       console.error("Login failed:", error);
-      alert("Login failed. Please check your credentials.");
+      notifyError();
       // Handle the error as needed
     }
   };
   return (
     <main className={styles.container}>
+      <ToastContainer />
+      
       <section className={styles.container_img}></section>
       <section className={styles.container_login}>
         <img src={logo} alt="imagem da logo da wilson sons" />
@@ -54,6 +68,7 @@ export default function Login() {
               placeholder="Senha"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              required
             />
             <p>Esqueci minha senha</p>
           </div>
